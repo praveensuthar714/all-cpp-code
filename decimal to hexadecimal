@@ -1,0 +1,46 @@
+// programe to convert the decimal number into the hexadecimal number 
+
+#include<iostream>
+using namespace std ; 
+
+
+void decToHexa(int n)
+{
+    char hexanum[100] ;
+    
+    int i = 0 ; 
+    
+    while(n>0)
+    {
+        int temp = 0 ; 
+        
+        temp = n%16 ; 
+        
+        if(temp < 10){
+            hexanum[i] = temp + 48 ; 
+            i++ ; 
+        }
+        else{
+            hexanum[i] = temp + 55 ;
+            i++ ; 
+        }
+        
+        n = n/16 ; 
+    }
+    
+    for(int j = i - 1; j>=0 ;j--)
+    {
+        cout<<hexanum[j] ; 
+    }
+    
+}
+int main()
+{
+    int n ;
+    cout<<"enter the number that you want to convert into the hexadecimal number ?"<<endl ; 
+    cin>>n ; 
+    
+    decToHexa(n) ; 
+    
+    return 0 ; 
+}
