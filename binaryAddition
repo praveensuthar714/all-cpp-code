@@ -1,0 +1,61 @@
+// programe to add two binary number. 
+
+#include<iostream>
+using namespace std ; 
+
+int binToDec(int n)
+{
+    int result = 0 ; 
+    int base = 1 ; 
+    
+    while(n>0)
+    {
+        int lastdigit = n%10 ; 
+        result += lastdigit*base ; 
+        base*=2 ; 
+        n = n/10 ; 
+    }
+    
+   return result  ; 
+  
+}
+void decToBin(int n) {
+   int rem =0 ; 
+   int i =0 ; 
+   int a[30] ; 
+   while(n>0)
+   {
+       rem = n%2; 
+       a[i] = rem ; 
+       n = n/2;
+       i++ ; 
+   }
+   
+   for(int j = i-1 ; j>=0 ; j--)
+   {
+       cout<<a[j] ; 
+   }
+    
+}
+void sum(int a,int b){
+    
+  int dec_a =  binToDec(a) ;
+  int dec_b = binToDec(b) ; 
+  
+  int sum = dec_a + dec_b ;
+
+  decToBin(sum) ; 
+}
+int main()
+{
+    int a,b ; 
+    cout<<"enter the binary number a ?"<<endl ; 
+    cin>>a ; 
+    cout<<"enterr the binary number b ?"<<endl ; 
+    cin>>b ;
+    
+    sum(a,b) ; 
+    
+    binToDec(a) ; 
+    return 0 ; 
+}
